@@ -9,8 +9,6 @@
 * 이전 버전 내용: 10250 - ACM 호텔
 */
 
-
-// 개같이 풀었음 참고할 코드도 안됨
 #include <iostream>
 using std::cout;
 using std::cin;
@@ -30,6 +28,12 @@ int main()
 		cin >> h >> w >> n;
 		int floor = n % h;
 		int room_num = n / h + 1;
+
+		if (0 == floor)
+		{
+			floor = h;
+			room_num -= 1;
+		}
 		cout << floor * 100 + room_num << '\n';
 	}
 	return 0;
