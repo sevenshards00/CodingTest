@@ -1,12 +1,12 @@
 ﻿/*
-* Coding Test - Baekjoon (새싹 난이도)
+* Coding Test - Baekjoon
 * 파일명: 10250.cpp
-* 파일 버전: 0.1
+* 파일 버전: 0.11
 * 작성자: Sevenshards
 * 작성 일자: 2024-04-09
-* 이전 버전 작성 일자:
-* 버전 내용: 10250 - ACM 호텔
-* 이전 버전 내용:
+* 이전 버전 작성 일자: 2024-04-09
+* 버전 내용: 로직 수정
+* 이전 버전 내용: 10250 - ACM 호텔
 */
 
 
@@ -24,46 +24,13 @@ int main()
 
 	cin >> t;
 
-	bool **arr = nullptr;
-
 	for (int i = 0; i != t; ++i)
 	{
 		// h, w, n을 입력받음
 		cin >> h >> w >> n;
-		
-		arr = new bool *[h];
-		
-		for (int j = 0; j != h; ++j)
-			arr[j] = new bool[w];
-		
-		for (int i = 0; i != h; ++i)
-			for (int j = 0; j != w; ++j)
-				arr[i][j] = false;
-
-		int floor;
-		int room_num;
-
-		for (room_num = 0; room_num != w; room_num++)
-		{
-			if (n == 0)
-				break;
-
-			for (floor = h - 1; floor != -1; --floor)
-			{
-				if (n == 0)
-					break;
-
-				arr[floor][room_num] = true;
-				--n;
-				
-			}
-		}
-
-		int curr_floor = h - floor - 1;
-		int curr_room_num = room_num;
-		int result_num = (curr_floor * 100) + curr_room_num;
-
-		cout << result_num << '\n';
+		int floor = n % h;
+		int room_num = n / h + 1;
+		cout << floor * 100 + room_num << '\n';
 	}
 	return 0;
 }
