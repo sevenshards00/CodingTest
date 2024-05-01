@@ -1,12 +1,12 @@
 ﻿/*
 * Coding Test - Baekjoon (solved.ac - Class 2)
 * 파일명: 7568.cpp
-* 파일 버전: 0.1
+* 파일 버전: 0.11
 * 작성자: Sevenshards
 * 작성 일자: 2024-05-01
-* 이전 버전 작성 일자:
-* 버전 내용: 7568 - 덩치
-* 이전 버전 내용:
+* 이전 버전 작성 일자: 2024-05-01
+* 버전 내용: delete 추가
+* 이전 버전 내용: 7568 - 덩치
 */
 
 #include <iostream>
@@ -46,6 +46,7 @@ int main()
 		cout << pPerson[i].m_Rank << ' ';
 
 	cout << '\n';
-
+	delete[] pPerson;
+	
 	return 0;
 }
