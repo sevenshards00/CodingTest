@@ -1,5 +1,5 @@
 ﻿/*
-* Coding Test - Baekjoon (solved.ac - Class 2)
+* Coding Test - Baekjoon (solved.ac - Class 3)
 * 파일명: 1260.cpp
 * 파일 버전: 0.1
 * 작성자: Sevenshards
