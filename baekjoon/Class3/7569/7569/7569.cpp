@@ -39,7 +39,6 @@ int BFS(const int &z, const int &y, const int &x)
 {
 	queue<st_Tomato> tomatoQueue;
 	int dayCnt = 0;
-	bool isAllRiped = true;
 
 	// 입력값을 받아서 토마토 상자를 초기화
 	for (int i = 0; i != z; ++i)
@@ -59,7 +58,6 @@ int BFS(const int &z, const int &y, const int &x)
 					ripeTomato.m_x = k;
 					tomatoQueue.push(ripeTomato);
 				}
-
 			}
 		}
 	}
@@ -87,9 +85,13 @@ int BFS(const int &z, const int &y, const int &x)
 			if (-1 == tomato_Box[nextTomato.m_z][nextTomato.m_y][nextTomato.m_x] || 1 == tomato_Box[nextTomato.m_z][nextTomato.m_y][nextTomato.m_x])
 				continue;
 
+			// 경과한 일수를 추가
 			nextTomato.elapsed = currTomato.elapsed + 1;
+
+			// 현재까지 카운팅한 일수가 새로 숙성된 토마토의 일수보다 작다면 갱신
 			if (dayCnt <= nextTomato.elapsed)
 				dayCnt = nextTomato.elapsed;
+			// 새로 숙성된 토마토를 큐에 넣는다.
 			tomatoQueue.push(nextTomato);
 			tomato_Box[nextTomato.m_z][nextTomato.m_y][nextTomato.m_x] = 1;
 		}
@@ -104,9 +106,7 @@ int BFS(const int &z, const int &y, const int &x)
 			for (int k = 0; k != x; ++k)
 			{
 				if (0 == tomato_Box[i][j][k])
-				{
 					return -1;
-				}
 			}
 		}
 	}
