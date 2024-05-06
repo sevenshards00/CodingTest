@@ -21,14 +21,14 @@ constexpr int DIR_LEN = 6;
 
 struct st_Tomato
 {
-	char m_x;
-	char m_y;
-	char m_z;
+	int m_x;
+	int m_y;
+	int m_z;
 	int elapsed = 0;
 };
 
 // Z, Y, X
-char tomato_Box[MAX_LEN][MAX_LEN][MAX_LEN];
+int tomato_Box[MAX_LEN][MAX_LEN][MAX_LEN];
 
 // Z축 상, 하 -> Y, X축 시계방향 탐색
 constexpr int dir_z[DIR_LEN] = { 1, -1, 0, 0, 0, 0 };
